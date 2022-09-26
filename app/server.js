@@ -25,7 +25,7 @@ passport.use(new WebAppStrategy({
 	clientId: "",
 	secret: "",
 	oauthServerUrl: "",
-	redirectUri: "http://localhost:3000/appid/callback"
+	redirectUri: "http://0.0.0.0:8080/appid/callback"
 }));
 
 // Handle Login
@@ -69,6 +69,6 @@ app.get('/api/user', (req, res) => {
 app.use(express.static('./public'));
 
 // Start server
-app.listen(3000, () => {
-    console.log('Listening on http://localhost:3000');
+app.listen(8080, () => {
+    console.log('Listening on http://0.0.0.0:8080');
 });
