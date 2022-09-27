@@ -25,7 +25,7 @@ passport.use(new WebAppStrategy({
 	clientId: process.env.CLIENTID,
 	secret: process.env.SECRET,
 	oauthServerUrl: process.env.OAUTHSRVURL,
-	redirectUri: "http://"+process.env.CE_APP+"."+process.env.CE_SUBDOMAIN+"."+process.env.CE_DOMAIN+"/appid/callback"
+	redirectUri: "https://"+process.env.CE_APP+"."+process.env.CE_SUBDOMAIN+"."+process.env.CE_DOMAIN+"/appid/callback"
 }));
 
 // Handle Login
