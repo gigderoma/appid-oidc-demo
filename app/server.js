@@ -21,7 +21,7 @@ app.use(passport.session());
 passport.serializeUser((user, cb) => cb(null, user));
 passport.deserializeUser((user, cb) => cb(null, user));
 passport.use(new WebAppStrategy({
-	tenantId: ${TENANTID},
+	tenantId: process.env.TENANTID;,
 	clientId: ${CLIENTID},
 	secret: ${SECRET},
 	oauthServerUrl: ${OAUTHSERVURL},
