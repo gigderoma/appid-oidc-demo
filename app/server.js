@@ -25,7 +25,7 @@ passport.use(new WebAppStrategy({
 	clientId: process.env.CLIENTID,
 	secret: process.env.SECRET,
 	oauthServerUrl: process.env.OAUTHSRVURL,
-	redirectUri: "http://0.0.0.0:8080/appid/callback"
+	redirectUri: "http://localhost:8080/appid/callback"
 }));
 
 // Handle Login
@@ -44,7 +44,7 @@ app.get('/appid/logout', function(req, res){
 });
 
 // Protect the whole app
-// app.use(passport.authenticate(WebAppStrategy.STRATEGY_NAME));
+app.use(passport.authenticate(WebAppStrategy.STRATEGY_NAME));
 
 // Make sure only requests from an authenticated browser session can reach /api
 app.use('/api', (req, res, next) => {
@@ -57,7 +57,7 @@ app.use('/api', (req, res, next) => {
 
 // The /api/user API used to retrieve name of a currently logged in user
 app.get('/api/user', (req, res) => {
-	// console.log(req.session[WebAppStrategy.AUTH_CONTEXT]);
+	console.log(req.session[WebAppStrategy.AUTH_CONTEXT]);
 	res.json({
 		user: {
 			name: req.user.name
@@ -70,5 +70,5 @@ app.use(express.static('./public'));
 
 // Start server
 app.listen(8080, () => {
-    console.log('Listening on http://0.0.0.0:8080');
+    console.log('Listening on http://localhost:8080');
 });
