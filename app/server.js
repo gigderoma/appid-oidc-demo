@@ -24,7 +24,7 @@ passport.use(new WebAppStrategy({
 	tenantId: process.env.TENANTID,
 	clientId: process.env.CLIENTID,
 	secret: process.env.SECRET,
-	oauthServerUrl: process.env.OAUTHSERVURL,
+	oauthServerUrl: process.env.OAUTHSRVURL,
 	redirectUri: "http://0.0.0.0:8080/appid/callback"
 }));
 
