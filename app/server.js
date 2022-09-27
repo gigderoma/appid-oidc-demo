@@ -21,10 +21,10 @@ app.use(passport.session());
 passport.serializeUser((user, cb) => cb(null, user));
 passport.deserializeUser((user, cb) => cb(null, user));
 passport.use(new WebAppStrategy({
-	tenantId: process.env.TENANTID;,
-	clientId: ${CLIENTID},
-	secret: ${SECRET},
-	oauthServerUrl: ${OAUTHSERVURL},
+	tenantId: process.env.TENANTID,
+	clientId: process.env.CLIENTID,
+	secret: process.env.SECRET,
+	oauthServerUrl: process.env.OAUTHSERVURL,
 	redirectUri: "http://0.0.0.0:8080/appid/callback"
 }));
 
