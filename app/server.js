@@ -44,7 +44,7 @@ app.get('/appid/logout', function(req, res){
 });
 
 // Protect the whole app
-app.use(passport.authenticate(WebAppStrategy.STRATEGY_NAME));
+// app.use(passport.authenticate(WebAppStrategy.STRATEGY_NAME));
 
 // Make sure only requests from an authenticated browser session can reach /api
 app.use('/api', (req, res, next) => {
