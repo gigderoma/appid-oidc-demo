@@ -70,7 +70,7 @@ app.use(passport.session());
 let webAppStrategy = new WebAppStrategy({
 	tenantId: process.env.TENANTID,
 	clientId: process.env.CLIENTID,
-	secret: process.env.SECRET,,
+	secret: process.env.SECRET,
 	oauthServerUrl: process.env.OAUTHSRVURL,
 	redirectUri: "https://"+process.env.CE_APP+"."+process.env.CE_SUBDOMAIN+"."+process.env.CE_DOMAIN + CALLBACK_URL
 });
