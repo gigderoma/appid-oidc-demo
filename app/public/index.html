@@ -22,7 +22,7 @@
             $.get("/api/user")
                 .then((resp) => {
                     $("#user").text(resp.user.name);
-                    $("#email").text(resp.user.email;
+                    $("#email").text(resp.user.email);
                     $("#logout").show();
                     $("#login").hide();
                 });
