@@ -25,15 +25,15 @@ const logger = log4js.getLogger("testApp");
 
 // Below URLs will be used for App ID OAuth flows
 const LANDING_PAGE_URL = "/web-app-sample.html";
-const LOGIN_URL = "/ibm/bluemix/appid/login";
-const SIGN_UP_URL = "/ibm/bluemix/appid/sign_up";
-const CHANGE_PASSWORD_URL = "/ibm/bluemix/appid/change_password";
-const CHANGE_DETAILS_URL = "/ibm/bluemix/appid/change_details";
-const FORGOT_PASSWORD_URL = "/ibm/bluemix/appid/forgot_password";
-const LOGIN_ANON_URL = "/ibm/bluemix/appid/loginanon";
-const CALLBACK_URL = "/ibm/bluemix/appid/callback";
-const LOGOUT_URL = "/ibm/bluemix/appid/logout";
-const ROP_LOGIN_PAGE_URL = "/ibm/bluemix/appid/rop/login";
+const LOGIN_URL = "/appid/login";
+const SIGN_UP_URL = "/appid/sign_up";
+const CHANGE_PASSWORD_URL = "/appid/change_password";
+const CHANGE_DETAILS_URL = "/appid/change_details";
+const FORGOT_PASSWORD_URL = "/appid/forgot_password";
+const LOGIN_ANON_URL = "/appid/loginanon";
+const CALLBACK_URL = "/appid/callback";
+const LOGOUT_URL = "/appid/logout";
+const ROP_LOGIN_PAGE_URL = "/appid/rop/login";
 
 app.use(helmet());
 app.use(flash());
@@ -68,13 +68,16 @@ app.use(passport.session());
 
 // Configure passportjs to use WebAppStrategy
 let webAppStrategy = new WebAppStrategy({
-	tenantId: "TENANT_ID",
-	clientId: "CLIENT_ID",
-	secret: "SECRET",
-	oauthServerUrl: "OAUTH_SERVER_URL",
-	redirectUri: "http://localhost:3000" + CALLBACK_URL
+	tenantId: process.env.TENANTID,
+	clientId: process.env.CLIENTID,
+	secret: process.env.SECRET,,
+	oauthServerUrl: process.env.OAUTHSRVURL,
+	redirectUri: "https://"+process.env.CE_APP+"."+process.env.CE_SUBDOMAIN+"."+process.env.CE_DOMAIN + CALLBACK_URL
 });
 passport.use(webAppStrategy);
+
+
+
 
 // Configure passportjs with user serialization/deserialization. This is required
 // for authenticated session persistence accross HTTP requests. See passportjs docs
