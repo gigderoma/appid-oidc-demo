@@ -61,6 +61,9 @@ app.get('/api/user', (req, res) => {
 	res.json({
 		user: {
 			name: req.user.name
+		},
+		email: {
+			name: req.user.email
 		}
 	});
 });
